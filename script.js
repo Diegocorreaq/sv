@@ -26,7 +26,8 @@ errorButton.addEventListener('click', ()=>{
 })
 
 buttons.forEach(button => {
-  const botonSi = document.querySelector(".button"); // Obtiene solo un botón con clase "button"
+  const botonSi = document.querySelector(".button");
+  const botonNo = document.querySelector(".button__negative"); // Obtiene solo un botón con clase "button"
   let tamaño = 16;
 
   button.addEventListener('click', () => {
@@ -45,9 +46,14 @@ buttons.forEach(button => {
         tamaño += 50;
         botonSi.style.fontSize = tamaño + "px";
         botonSi.style.padding = (tamaño / 2) + "px";
-        
+        if (count ==3) {
+          botonNo.style.display = 'none';
+        }
 
-      } else {
+      }
+      
+      
+      else {
         buttons.forEach(btn => btn.style.display = 'none');
         errorButton.style.display = 'inline-block';
       }
